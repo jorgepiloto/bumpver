@@ -443,7 +443,7 @@ def _format_segment(seg: Segment, part_values: PartValues) -> FormatedSeg:
     is_literal_seg = len(used_parts) == 0
     if is_literal_seg:
         return FormatedSeg(True, False, result)
-    elif zero_part_count > 0 and zero_part_count == len(used_parts):
+    elif zero_part_count > 0 and zero_part_count == len(used_parts) and part not in ["MAJOR", "MINOR"]:
         # all zero, omit segment completely
         return FormatedSeg(False, True, result)
     else:
